@@ -1,0 +1,19 @@
+@use "../core/mixins" as *;
+
+@use "hero";
+
+.wrapper {
+	padding: 0 2.6vw;
+	overflow: hidden;
+
+	@media (max-width: 767px) {
+		padding: 0 5.5vw;
+	}
+}
+
+.container {
+	width: 100%;
+	max-width: 1820px;
+	min-height: 100vh;
+	margin: 0 auto;
+}
