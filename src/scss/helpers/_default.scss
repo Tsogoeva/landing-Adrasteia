@@ -1,0 +1,99 @@
+html {
+  //line-height: 1.15;
+  // touch-action: manipulation;
+}
+
+html,
+body {
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  /* Предотвращает изменение размера текста в Safari */
+  overscroll-behavior: contain;
+  /* Предотвращает нежелательное поведение */
+  touch-action: pan-x pan-y;
+  /* Разрешает прокрутку, но запрещает масштабирование */
+  user-select: none;
+  -webkit-user-select: none;
+  /* Отключает выбор текста, что может мешать */
+  zoom: 1;
+  /* Фиксирует масштаб */
+  font-size: var(--base-font-size);
+  /* Минимальный размер шрифта для мобильных */
+  margin: 0;
+  padding: 0;
+  font-family: "OpenSans", Arial, sans-serif;
+}
+
+main {
+  display: block;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--bg-main-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--nav-link-color);
+  cursor: pointer;
+  background-color: transparent;
+}
+
+button {
+  background: transparent;
+  padding: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: block;
+  touch-action: manipulation;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  margin: 0;
+  padding: 0;
+}
+
+progress {
+  appearance: none;
+  border: none;
+  display: block;
+}
+
+svg,
+img {
+  display: block;
+}

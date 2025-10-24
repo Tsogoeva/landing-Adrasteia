@@ -1,0 +1,62 @@
+@use "sass:list";
+
+// for media breakpoint
+@use "sass:math";
+
+:root {
+  --vh: 1vh;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --vh: 1dvh;
+  }
+}
+
+// font-settings
+@mixin font-settings($font-family: false, $size: false, $lh: false, $weight: false, $color: false) {
+  @if $font-family {
+    font-family: $font-family;
+  }
+
+  @if $size {
+    @if list.length($size) == 2 {
+      $min-size: list.nth($size, 1);
+      $max-size: list.nth($size, 2);
+      @include adaptive-clamp("font-size", $min-size, $max-size);
+    } @else {
+      font-size: $size;
+    }
+  }
+
+  @if $lh {
+    line-height: $lh;
+  }
+
+  @if $weight {
+    font-weight: $weight;
+  }
+
+  @if $color {
+    color: $color;
+  }
+}
+
+$base-font-size: 16px !default;
+$base-width: 1820px !default;
+
+//миксин для адаптивного clamp с rem и vw
+@mixin adaptive-clamp($property, $min-px, $max-px, $media-multiplier: null) {
+  $min-rem: math.div($min-px, $base-font-size);
+  $max-rem: math.div($max-px, $base-font-size);
+  $pref-vw: math.div($max-px, $base-width) * 100;
+
+  #{$property}: clamp(#{$min-rem}rem, #{$pref-vw}vw, #{$max-rem}rem);
+
+  @if $media-multiplier {
+    @media (max-width: 767px) {
+      $adjusted-vw: $pref-vw + $media-multiplier;
+      #{$property}: clamp(#{$min-rem}rem, #{$adjusted-vw}vw, #{$max-rem}rem);
+    }
+  }
+}
