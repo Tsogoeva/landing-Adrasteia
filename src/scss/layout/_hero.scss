@@ -25,7 +25,7 @@
 
 		.menu-container {
 			@media (max-width: 980px) {
-				position: relative;
+				// position: relative;
 			}
 
 			.menu-desk {
@@ -81,27 +81,35 @@
 					display: block;
 
 					#sidebar-menu {
-						height: auto;
+						min-height: 80vh;
 						position: absolute;
-						right: -5.5vw;
+						top: 70px;
+						left: 0;
 						width: 100vw;
-						@include adaptive-clamp("margin-top", 40px, 100px);
+						// @include adaptive-clamp("margin-top", 40px, 100px);
 						transform: translateX(100vw);
 						transition: transform 600ms ease-in-out;
-						background-color: var(--dark-blue-color);
+						background-color: var(--bg-main-color);
+						padding: 5vh 0;
+
+						display: flex;
+						flex-direction: column;
+						justify-content: flex-end;
+						gap: 30px;
 					}
 					.sidebar-menu-inner {
-						margin: 0;
+						width: max-content;
+						margin: 0 auto;
 						padding: 0;
-						border-top: 1px solid rgba(255, 255, 255, 0.1);
+						// border-top: 1px solid rgba(255, 255, 255, 0.1);
 					}
 					.sidebar-menu-inner li {
 						list-style: none;
-						@include font-settings("Gilroy", 18px 20px, 140%, 700, var(--dark-blue-color));
-						text-transform: uppercase;
-						padding: 20px;
+						@include font-settings("Gilroy", 20px 40px, 140%, 500, var(--dark-blue-color));
+						// text-transform: uppercase;
+						padding: 10px;
 						cursor: pointer;
-						border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+						// border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 					}
 					input[type="checkbox"]:checked ~ #sidebar-menu {
 						transform: translateX(0);
@@ -114,17 +122,16 @@
 					.sidebar-icon-toggle {
 						display: flex;
 						flex-direction: column;
-						justify-content: flex-start;
+						justify-content: center;
 						gap: 8px;
 						transition: all 0.6s;
 						cursor: pointer;
-						position: absolute;
+						// position: absolute;
 						// z-index: 1000;
-						top: 0;
-						right: 0;
-						height: 52px;
-						width: 52px;
-						padding: 10px;
+						// top: 0;
+						// right: 0;
+						height: 22px;
+						width: 32px;
 					}
 					.spinner {
 						transition: all 0.6s;
@@ -133,11 +140,11 @@
 						width: 100%;
 						background-color: var(--dark-blue-color);
 					}
-					.horizontal {
-						transition: all 0.6s;
-						position: relative;
-						float: left;
-					}
+					// .horizontal {
+					// 	transition: all 0.6s;
+					// 	position: relative;
+					// 	float: left;
+					// }
 					.diagonal.part-1 {
 						position: relative;
 						transition: all 0.6s;
@@ -148,19 +155,56 @@
 						position: relative;
 						float: left;
 					}
-					input[type="checkbox"]:checked ~ .sidebar-icon-toggle > .horizontal {
-						transition: all 0.6s;
-						opacity: 0;
-					}
+					// input[type="checkbox"]:checked ~ .sidebar-icon-toggle > .horizontal {
+					// 	transition: all 0.6s;
+					// 	opacity: 0;
+					// }
 					input[type="checkbox"]:checked ~ .sidebar-icon-toggle > .diagonal.part-1 {
 						transition: all 0.6s;
 						transform: rotate(135deg);
-						margin-top: 6px;
 					}
 					input[type="checkbox"]:checked ~ .sidebar-icon-toggle > .diagonal.part-2 {
 						transition: all 0.6s;
 						transform: rotate(-135deg);
-						margin-top: -20px;
+						margin-top: -10px;
+					}
+
+					.sidebar-menu-contacts {
+						display: flex;
+						justify-content: space-between;
+						// @include adaptive-clamp("padding-top", 12px, 20px);
+						// @include adaptive-clamp("padding-bottom", 12px, 20px);
+						// @include adaptive-clamp("padding-left", 12px, 20px);
+						// @include adaptive-clamp("padding-right", 12px, 20px);
+						align-items: center;
+						// @include adaptive-clamp("gap", 10px, 15px);
+						border: 1px solid #dde0e9;
+						border-radius: 100px;
+						margin: 0 5vw;
+
+						.sidebar-contact {
+							display: flex;
+							align-items: center;
+							@include adaptive-clamp("gap", 4px, 16px);
+							@include adaptive-clamp("padding-top", 10px, 50px);
+							@include adaptive-clamp("padding-bottom", 10px, 50px);
+							@include adaptive-clamp("padding-left", 10px, 50px);
+							@include adaptive-clamp("padding-right", 10px, 50px);
+
+							.menu-soc-logo {
+								display: inline-block;
+								@include adaptive-clamp("width", 18px, 42px);
+								@include adaptive-clamp("height", 18px, 42px);
+								flex-shrink: 0;
+							}
+							.menu-soc-text {
+								@include font-settings("Gilroy", 10px 40px, 140%, 700, var(--dark-blue-color));
+							}
+							.mail-text {
+								@include font-settings("Gilroy", 10px 40px, 140%, 700, var(--bright-blue-color));
+								text-transform: lowercase;
+							}
+						}
 					}
 				}
 			}
