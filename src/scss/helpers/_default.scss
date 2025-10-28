@@ -12,8 +12,8 @@ body {
   /* Предотвращает нежелательное поведение */
   touch-action: pan-x pan-y;
   /* Разрешает прокрутку, но запрещает масштабирование */
-  user-select: none;
-  -webkit-user-select: none;
+  // user-select: none;
+  // -webkit-user-select: none;
   /* Отключает выбор текста, что может мешать */
   zoom: 1;
   /* Фиксирует масштаб */
