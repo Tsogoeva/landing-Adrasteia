@@ -20,6 +20,25 @@
 				@include adaptive-clamp("width", 132px, 243px);
 				@include adaptive-clamp("height", 19px, 33px);
 				flex-shrink: 0;
+				fill: var(--dark-blue-color);
+				stroke: none;
+				stroke-width: 0;
+				stroke-opacity: 0;
+				transition:
+					fill 1s ease,
+					stroke 1s ease,
+					stroke-width 1s ease,
+					stroke-opacity 1s ease;
+			}
+
+			.logo:hover,
+			.logo:active,
+			.logo:focus,
+			.logo:focus-visible {
+				fill: var(--gray-color);
+				stroke: var(--dark-blue-color);
+				stroke-width: 0.6px;
+				stroke-opacity: 0.5;
 			}
 		}
 
