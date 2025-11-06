@@ -2,6 +2,188 @@
 
 .hero {
 	width: 100%;
-	@include adaptive-clamp("padding-top", 20px, 40px);
-	@include adaptive-clamp("padding-bottom", 20px, 40px);
+	max-height: calc(100vh - 6rem);
+	@include adaptive-clamp("padding-top", 40px, 70px);
+	@include adaptive-clamp("padding-bottom", 40px, 70px);
+
+	.hero-flex-container {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row;
+		gap: 20px;
+
+		@media (max-width: 767px) {
+			flex-direction: column;
+			gap: 30px;
+		}
+
+		.hero-info {
+			h1 {
+				@include font-settings("Gilroy", 34px 100px, 85%, 500, var(--dark-blue-color));
+				text-align: left;
+				@include adaptive-clamp("padding-bottom", 20px, 30px);
+
+				span {
+					color: var(--gray-color);
+				}
+			}
+			p {
+				@include font-settings("Gilroy", 14px 24px, 100%, 500, var(--gray-color));
+				text-align: left;
+				@include adaptive-clamp("padding-bottom", 40px, 70px);
+
+				br {
+					display: none;
+
+					@media (max-width: 767px) {
+						display: block;
+					}
+				}
+			}
+			.hero-pop-up {
+				display: flex;
+				align-items: center;
+				outline: none;
+				width: max-content;
+				background-color: rgb(33 56 135 / 6%);
+				@include adaptive-clamp("gap", 20px, 80px);
+				@include adaptive-clamp("padding-top", 12px, 30px);
+				@include adaptive-clamp("padding-bottom", 12px, 30px);
+				@include adaptive-clamp("padding-left", 12px, 24px);
+				@include adaptive-clamp("padding-right", 12px, 24px);
+				@include adaptive-clamp("border-radius", 6px, 12px);
+
+				position: relative;
+				overflow: hidden;
+
+				&::before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: -100%;
+					width: 300%;
+					height: 100%;
+					background: linear-gradient(300deg, rgb(33 56 135 / 0%) 0%, rgb(33 56 135 / 8%) 10%, rgb(33 56 135 / 10%) 40%, rgb(33 56 135 / 12%) 50%, rgb(33 56 135 / 10%) 60%, rgb(33 56 135 / 3%) 80%, rgb(33 56 135 / 0%) 100%);
+					transform: skewX(-25deg);
+					animation: shine-animation 2s linear infinite;
+				}
+
+				.hero-pop-up-text {
+					@include font-settings("Gilroy", 16px 26px, 140%, 600, var(--bright-blue-color));
+					white-space: nowrap;
+				}
+				.hero-pop-up-plus {
+					display: inline-block;
+					@include adaptive-clamp("max-width", 30px, 50px);
+					@include adaptive-clamp("max-height", 30px, 50px);
+					fill: var(--bright-blue-color);
+				}
+			}
+		}
+		.hero-banner-container {
+			@media (max-width: 767px) {
+				@include adaptive-clamp("width", 280px, 1200px);
+				margin: 0 auto;
+			}
+			.hero-banner {
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+		}
+	}
+	.navigation-flex-container {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row;
+		@include adaptive-clamp("margin-top", 30px, 80px);
+
+		@media (max-width: 460px) {
+			display: none;
+		}
+
+		.hero-arrow-down {
+			max-height: min-content;
+			background-color: #f2f3f8;
+			padding: 15px;
+			border-radius: 100px;
+			aspect-ratio: 1 / 1;
+
+			svg {
+				display: inline-block;
+				@include adaptive-clamp("width", 18px, 24px);
+				@include adaptive-clamp("height", 18px, 24px);
+				fill: var(--bright-blue-color);
+				flex-shrink: 0;
+			}
+		}
+
+		.hero-open-chat-container {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-around;
+			gap: 10px;
+			background-color: #f2f3f8;
+			padding: 10px 24px;
+			border-radius: 100px;
+
+			position: relative;
+			overflow: hidden;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: -100%;
+				width: 300%;
+				height: 100%;
+				background: linear-gradient(300deg, rgb(33 56 135 / 0%) 0%, rgb(33 56 135 / 8%) 10%, rgb(33 56 135 / 10%) 40%, rgb(33 56 135 / 12%) 50%, rgb(33 56 135 / 10%) 60%, rgb(33 56 135 / 3%) 80%, rgb(33 56 135 / 0%) 100%);
+				transform: skewX(-25deg);
+				animation: shine-animation 2s linear infinite;
+			}
+
+			.hero-open-chat {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+				gap: 10px;
+
+				svg {
+					display: inline-block;
+					@include adaptive-clamp("width", 18px, 26px);
+					@include adaptive-clamp("height", 18px, 26px);
+					fill: var(--bright-blue-color);
+					flex-shrink: 0;
+				}
+				.hero-open-chat-text {
+					@include font-settings("Gilroy", 16px 22px, 140%, 700, var(--dark-blue-color));
+					white-space: nowrap;
+				}
+			}
+			.hero-open-chat-border {
+				display: inline-block;
+				width: 1px;
+				height: 30px;
+				background-color: #e4e7f1;
+			}
+			.hero-open-chat-mail {
+				@include font-settings("Gilroy", 16px 22px, 140%, 700, var(--bright-blue-color));
+				white-space: nowrap;
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+@keyframes shine-animation {
+	0% {
+		left: -300%;
+	}
+	100% {
+		left: 200%;
+	}
 }
