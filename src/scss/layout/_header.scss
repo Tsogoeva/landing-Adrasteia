@@ -1,0 +1,321 @@
+@use "../core/mixins" as *;
+
+.header {
+	width: 100%;
+	@include adaptive-clamp("padding-top", 20px, 40px);
+	@include adaptive-clamp("padding-bottom", 20px, 40px);
+	border-bottom: 1px solid var(--dark-blue-color);
+
+	.menu-flex-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+
+		.menu-logo {
+			max-width: 243px;
+			max-height: 33px;
+			outline: none;
+
+			.logo {
+				@include adaptive-clamp("width", 132px, 243px);
+				@include adaptive-clamp("height", 19px, 33px);
+				flex-shrink: 0;
+				fill: var(--dark-blue-color);
+				stroke: none;
+				stroke-width: 0;
+				stroke-opacity: 0;
+				transform: scale(1);
+				transition:
+					fill 1s ease,
+					stroke 1s ease,
+					stroke-width 1s ease,
+					stroke-opacity 1s ease,
+					transform 1s ease;
+			}
+		}
+
+		.menu-logo:hover,
+		.menu-logo:active,
+		.menu-logo:focus,
+		.menu-logo:focus-visible {
+			.logo {
+				fill: var(--gray-color);
+				stroke: var(--dark-blue-color);
+				stroke-width: 0.6px;
+				stroke-opacity: 0.5;
+				transform: scale(1.1);
+			}
+		}
+
+		.menu-container {
+			.menu-desk {
+				display: flex;
+				justify-content: space-between;
+				@include adaptive-clamp("gap", 12px, 32px);
+				@include font-settings("Gilroy", 16px 22px, 140%, 600, var(--dark-blue-color));
+				white-space: nowrap;
+
+				@media (max-width: 980px) {
+					display: none;
+				}
+
+				// Start animation navbar
+				a {
+					position: relative;
+					outline: none;
+				}
+
+				a:hover {
+					color: var(--dark-blue-color);
+				}
+
+				a::before {
+					content: "";
+					position: absolute;
+					display: block;
+					width: 100%;
+					height: 1px;
+					bottom: 0;
+					left: 0;
+					background-color: var(--dark-blue-color);
+					transform: scaleX(0);
+					transition: transform 0.5s ease;
+				}
+
+				a:hover::before {
+					transform: scaleX(1);
+				}
+
+				a:active::before,
+				a:focus::before,
+				a:focus-visible::before {
+					transform: scaleX(1);
+				}
+				// End animation navbar
+			}
+
+			.menu-mob {
+				display: none;
+
+				@media (max-width: 980px) {
+					display: block;
+
+					#sidebar-menu {
+						height: calc(100vh - 70px);
+						position: absolute;
+						top: 70px;
+						left: 0;
+						width: 100vw;
+						transform: translateX(100vw);
+						transition: transform 600ms ease-in-out;
+						background-color: var(--bg-main-color);
+						padding: 5vh 0;
+
+						display: flex;
+						flex-direction: column;
+						justify-content: flex-end;
+						gap: 30px;
+					}
+					.sidebar-menu-inner {
+						width: max-content;
+						margin: 0 auto;
+						padding: 0;
+					}
+					.sidebar-menu-inner li {
+						list-style: none;
+						@include font-settings("Gilroy", 20px 44px, 140%, 500, var(--dark-blue-color));
+						padding: 10px;
+						cursor: pointer;
+
+						// Start animation sidebar menu li
+						a {
+							position: relative;
+							outline: none;
+						}
+
+						a:hover {
+							color: var(--gray-color);
+							transition: color 1s ease;
+						}
+
+						a::before {
+							content: "";
+							position: absolute;
+							display: block;
+							width: 100%;
+							height: 1px;
+							bottom: 0;
+							left: 0;
+							background-color: var(--gray-color);
+							transform: scaleX(0);
+							transition: transform 0.5s ease;
+						}
+
+						a:hover,
+						a:active,
+						a:focus,
+						a:focus-visible {
+							color: var(--gray-color);
+						}
+
+						a:hover::before,
+						a:active::before,
+						a:focus::before,
+						a:focus-visible::before {
+							transform: scaleX(1);
+						}
+						// End animation sidebar menu li
+					}
+					input[type="checkbox"]:checked ~ #sidebar-menu {
+						transform: translateX(0);
+					}
+					input[type="checkbox"] {
+						transition: all 0.3s;
+						box-sizing: border-box;
+						display: none;
+					}
+					.sidebar-icon-toggle {
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						gap: 8px;
+						transition: all 0.6s;
+						cursor: pointer;
+						height: 22px;
+						width: 32px;
+					}
+					.spinner {
+						transition: all 0.6s;
+						position: absolute;
+						height: 2px;
+						width: 100%;
+						background-color: var(--dark-blue-color);
+					}
+					.diagonal.part-1 {
+						position: relative;
+						transition: all 0.6s;
+						float: left;
+					}
+					.diagonal.part-2 {
+						transition: all 0.6s;
+						position: relative;
+						float: left;
+					}
+					input[type="checkbox"]:checked ~ .sidebar-icon-toggle > .diagonal.part-1 {
+						transition: all 0.6s;
+						transform: rotate(135deg);
+					}
+					input[type="checkbox"]:checked ~ .sidebar-icon-toggle > .diagonal.part-2 {
+						transition: all 0.6s;
+						transform: rotate(-135deg);
+						margin-top: -10px;
+					}
+
+					.sidebar-menu-contacts {
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						border: 1px solid #dde0e9;
+						border-radius: 100px;
+						margin: 0 5vw;
+
+						a {
+							outline: none;
+						}
+
+						.sidebar-contact {
+							display: flex;
+							align-items: center;
+							@include adaptive-clamp("gap", 4px, 16px);
+							@include adaptive-clamp("padding-top", 10px, 50px);
+							@include adaptive-clamp("padding-bottom", 10px, 50px);
+							@include adaptive-clamp("padding-left", 10px, 50px);
+							@include adaptive-clamp("padding-right", 10px, 50px);
+
+							.menu-soc-logo {
+								display: inline-block;
+								@include adaptive-clamp("width", 18px, 42px);
+								@include adaptive-clamp("height", 18px, 42px);
+								flex-shrink: 0;
+								fill: var(--bright-blue-color);
+								transition: fill 0.6s ease;
+							}
+
+							.menu-soc-text {
+								@include font-settings("Gilroy", 10px 40px, 140%, 700, var(--dark-blue-color));
+								transition: color 0.6s ease;
+							}
+						}
+
+						.mail-text {
+							@include font-settings("Gilroy", 10px 40px, 140%, 700, var(--bright-blue-color));
+							text-transform: lowercase;
+							transition: color 0.6s ease;
+						}
+
+						.sidebar-contact:hover,
+						.sidebar-contact:active,
+						.sidebar-contact:focus,
+						.sidebar-contact:focus-visible {
+							.menu-soc-logo {
+								fill: var(--gray-color);
+							}
+
+							.menu-soc-text {
+								color: var(--gray-color);
+							}
+						}
+
+						.sidebar-contact:hover.mail-text,
+						.sidebar-contact:active.mail-text,
+						.sidebar-contact:focus.mail-text,
+						.sidebar-contact:focus-visible.mail-text {
+							color: var(--gray-color);
+						}
+					}
+				}
+			}
+		}
+
+		.menu-pop-up {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			outline: none;
+
+			@media (max-width: 980px) {
+				display: none;
+			}
+
+			.menu-pop-up-text {
+				@include font-settings("Gilroy", 16px 22px, 140%, 600, var(--bright-blue-color));
+				white-space: nowrap;
+				transition: color 1s ease;
+			}
+			.menu-pop-up-plus {
+				display: inline-block;
+				max-width: 34px;
+				max-height: 34px;
+				fill: var(--bright-blue-color);
+				transform: rotate(0deg);
+				transition:
+					fill 1s ease,
+					transform 1s ease;
+			}
+		}
+
+		.menu-pop-up:hover,
+		.menu-pop-up:active,
+		.menu-pop-up:focus,
+		.menu-pop-up:focus-visible {
+			.pop-up-text {
+				color: var(--gray-color);
+			}
+			.pop-up-plus {
+				fill: var(--gray-color);
+				transform: rotate(180deg);
+			}
+		}
+	}
+}

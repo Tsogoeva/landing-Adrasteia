@@ -1,65 +1,36 @@
 <section class="hero">
 	<div class="wrapper">
 		<div class="container">
-			<div class="menu-flex-container">
-				<a class="menu-logo" href="#">
-					<svg class="logo">
-						<use xlink:href="#logo-top"></use>
-					</svg>
-				</a>
-				<nav class="menu-container">
-					<!-- Start Menu Desktop -->
-					<ul class="menu-desk">
-						<li><a href="#">Главный</a></li>
-						<li><a href="#">О нас</a></li>
-						<li><a href="#">Услуги</a></li>
-						<li><a href="#">Как мы работаем </a></li>
-						<li><a href="#">Клиенты</a></li>
-						<li><a href="#">Контакты</a></li>
-					</ul>
-					<!-- Start Menu Mobile -->
-					<div class="menu-mob">
-						<input type="checkbox" class="open-sidebar-menu" id="open-sidebar-menu">
-						<label for="open-sidebar-menu" class="sidebar-icon-toggle">
-							<div class="spinner diagonal part-1"></div>
-							<div class="spinner diagonal part-2"></div>
-						</label>
-						<div id="sidebar-menu">
-							<ul class="sidebar-menu-inner">
-								<li><a href="#">Главный</a></li>
-								<li><a href="#">О нас</a></li>
-								<li><a href="#">Услуги</a></li>
-								<li><a href="#">Как мы работаем </a></li>
-								<li><a href="#">Клиенты</a></li>
-								<li><a href="#">Контакты</a></li>
-							</ul>
-							<div class="sidebar-menu-contacts">
-								<a class="sidebar-contact" href="#whatsapp">
-									<svg class="menu-soc-logo">
-										<use xlink:href="#chat"></use>
-									</svg>
-									<span class="menu-soc-text">whatsapp</span>
-								</a>
-								<a class="sidebar-contact" href="#telegram">
-									<svg class="menu-soc-logo">
-										<use xlink:href="#tg"></use>
-									</svg>
-									<span class="menu-soc-text">telegram</span>
-								</a>
-								<a class="sidebar-contact mail-text" href="mailto:adrasteia@mail.com">
-									adrasteia@mail.com
-								</a>
-							</div>
-						</div>
+			<div class="hero-main">
+				<div class="main-flex-container">
+					<div class="main-info">
+						<h1>Детективно-информационное агентство</h1>
+						<p>Владеешь информацией - владеешь миром</p>
+						<a class="main-pop-up" href="#">
+							<span class="main-pop-up-text">Оформить заявку</span>
+							<svg class="main-pop-up-plus">
+								<use xlink:href="#plus"></use>
+							</svg>
+						</a>
 					</div>
-					<!-- End Menu -->
-				</nav>
-				<a class="menu-pop-up" href="#">
-					<span class="pop-up-text">Оформить заявку</span>
-					<svg class="pop-up-plus">
-						<use xlink:href="#plus"></use>
-					</svg>
-				</a>
+					<figure class="hero-banner-container">
+						<load src="./picture/picture.html" class-name="hero-banner" img-name="hero-banner" alt-name="Изображение источников информации" type="png" />
+					</figure>
+				</div>
+				<div class="navigation-flex-container">
+					<a class="hero-arrow-down" href="#">
+						<svg>
+							<use xlink:href="#arrow-down"></use>
+						</svg>
+					</a>
+					<div class="hero-open-chat">
+						<svg>
+							<use xlink:href="#chat"></use>
+						</svg>
+						<span class="hero-open-chat-text">открыть чат</span>
+						<a class="hero-open-chat-mail" href="mailto:adrasteia@mail.com">adrasteia@mail.com</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
