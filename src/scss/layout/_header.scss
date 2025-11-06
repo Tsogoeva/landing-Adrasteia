@@ -309,10 +309,10 @@
 		.menu-pop-up:active,
 		.menu-pop-up:focus,
 		.menu-pop-up:focus-visible {
-			.pop-up-text {
+			.menu-pop-up-text {
 				color: var(--gray-color);
 			}
-			.pop-up-plus {
+			.menu-pop-up-plus {
 				fill: var(--gray-color);
 				transform: rotate(180deg);
 			}
