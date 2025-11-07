@@ -106,6 +106,7 @@
 						position: absolute;
 						top: 70px;
 						left: 0;
+						z-index: 1000;
 						width: 100vw;
 						transform: translateX(100vw);
 						transition: transform 600ms ease-in-out;
