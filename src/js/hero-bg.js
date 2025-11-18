@@ -1,5 +1,5 @@
 
-(function () {
+function animatePoints() {
 	const svg = document.getElementById("hero-wave");
 	const spacing = 40;
 	const width = 1400;
@@ -9,7 +9,6 @@
 	const startX = -width / 2;
 	const startY = -height / 2;
 
-	// группа, повернутая на -30°
 	const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
 	g.setAttribute("transform", "translate(800,700) rotate(-43)");
 	svg.appendChild(g);
@@ -39,4 +38,6 @@
 			g.appendChild(e);
 		}
 	}
-})();
+}
+
+export { animatePoints };
