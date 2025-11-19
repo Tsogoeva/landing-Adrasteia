@@ -2,7 +2,7 @@
 
 .hero {
 	width: 100%;
-	max-height: calc(100vh - 6rem);
+	// min-height: calc(100vh - 6rem);
 	@include adaptive-clamp("padding-top", 40px, 70px);
 	@include adaptive-clamp("padding-bottom", 40px, 70px);
 
