@@ -18,31 +18,103 @@
 		@include adaptive-clamp("padding-bottom", 30px, 90px);
 	}
 	.who-desc-container {
+		display: block;
+		@media (max-width: 767px) {
+			display: none;
+		}
+
 		.who-pins {
+			margin: 0 auto;
+			@include adaptive-clamp("max-width", 600px, 1330px);
+			svg {
+				width: 100%;
+			}
 		}
 		.who-cards {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			gap: 20px;
+
+			.who-card01 {
+				flex-basis: 505px;
+				flex-shrink: 1;
+			}
+
+			.who-card02 {
+				flex-basis: 417px;
+				flex-shrink: 1;
+			}
+
+			.who-card03 {
+				flex-basis: 390px;
+				flex-shrink: 1;
+			}
+
+			.who-card04 {
+				flex-basis: 250px;
+				flex-shrink: 1;
+			}
+
 			article {
+				height: 100%;
 				.who-text {
+					@include font-settings("Gilroy", 14px 32px, 100%, 500, var(--dark-blue-color));
+					letter-spacing: -4%;
 				}
 				.who-text-num {
+					@include font-settings("Gilroy", 14px 32px, 100%, 500, var(--gray-color));
+					letter-spacing: -4%;
 				}
 
 				.who-card01-img {
+					position: relative;
+					img {
+						width: 100%;
+					}
 				}
 				.who-card02-img {
+					position: relative;
+					img {
+						width: 100%;
+						@include adaptive-clamp("padding-bottom", 20px, 40px);
+					}
 				}
 				.who-card03-img {
+					position: relative;
+
+					img {
+						width: 100%;
+						@include adaptive-clamp("padding-top", 120px, 260px);
+					}
 				}
 				.who-card04-img {
+					img {
+						width: 100%;
+					}
 				}
 
 				.who-card01-text {
+					transform: rotate(-13deg);
+					position: absolute;
+					@include adaptive-clamp("left", 30px, 50px);
+					@include adaptive-clamp("top", 50px, 140px);
 				}
 				.who-card02-text {
+					position: absolute;
+					@include adaptive-clamp("left", 10px, 20px);
+					@include adaptive-clamp("top", 120px, 400px);
 				}
 				.who-card03-text {
+					position: absolute;
+					right: 0;
+					@include adaptive-clamp("top", 10px, 20px);
 				}
 				.who-card04-text {
+					display: block;
+					max-width: max-content;
+					margin-left: auto;
+					@include adaptive-clamp("padding-top", 12px, 24px);
 				}
 			}
 		}
