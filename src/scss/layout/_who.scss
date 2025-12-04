@@ -10,13 +10,27 @@
 		@include font-settings("Gilroy", 32px 96px, 100%, 500, var(--dark-blue-color));
 		text-align: center;
 		@include adaptive-clamp("padding-bottom", 6px, 12px);
+
+		@media (max-width: 767px) {
+			text-align: left;
+		}
 	}
 
 	.who-subtitle {
 		@include font-settings("Gilroy", 14px 34px, 120%, 500, var(--gray-color));
 		text-align: center;
 		@include adaptive-clamp("padding-bottom", 30px, 90px);
+
+		@media (max-width: 767px) {
+			text-align: left;
+		}
 	}
+
+	.who-text {
+		@include font-settings("Gilroy", 14px 32px, 100%, 500, var(--dark-blue-color));
+		letter-spacing: -4%;
+	}
+
 	.who-desc-container {
 		position: relative;
 		display: block;
@@ -64,10 +78,6 @@
 
 			article {
 				height: 100%;
-				.who-text {
-					@include font-settings("Gilroy", 14px 32px, 100%, 500, var(--dark-blue-color));
-					letter-spacing: -4%;
-				}
 				.who-text-num {
 					@include font-settings("Gilroy", 14px 32px, 100%, 500, var(--gray-color));
 					letter-spacing: -4%;
@@ -123,6 +133,66 @@
 					max-width: max-content;
 					margin-left: auto;
 					@include adaptive-clamp("padding-top", 12px, 24px);
+				}
+			}
+		}
+	}
+
+	.who-mob-container {
+		display: none;
+
+		@media (max-width: 767px) {
+			display: block;
+		}
+
+		.who-mob-cards {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+
+			.who-mob-card01 {
+			}
+
+			.who-mob-card02 {
+			}
+
+			.who-mob-card03 {
+				flex-direction: row-reverse;
+
+				.who-mob-text3 {
+					display: none;
+
+					@media (max-width: 350px) {
+						display: inline;
+					}
+				}
+			}
+
+			.who-mob-card04 {
+			}
+
+			article {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 20px;
+				@include adaptive-clamp("height", 150px, 360px);
+				@include adaptive-clamp("border-radius", 5px, 24px);
+				@include adaptive-clamp("padding-left", 20px, 95px);
+				@include adaptive-clamp("padding-right", 20px, 95px);
+				@include adaptive-clamp("padding-top", 16px, 85px);
+				@include adaptive-clamp("padding-bottom", 16px, 85px);
+				background-color: var(--light-gray-color);
+
+				.who-mob-card02-img {
+				}
+				.who-mob-card03-img {
+				}
+				.who-mob-card04-img {
+				}
+
+				.who-mob-card-text {
+					@include adaptive-clamp("max-width", 120px, 355px);
 				}
 			}
 		}
