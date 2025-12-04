@@ -1,0 +1,19 @@
+@use "../core/mixins" as *;
+
+.services {
+	width: 100%;
+	@include adaptive-clamp("padding-top", 20px, 70px);
+	@include adaptive-clamp("padding-bottom", 20px, 70px);
+	@include adaptive-clamp("border-radius", 6px, 20px);
+	background-color: var(--light-gray-color);
+
+	.services-title {
+		@include font-settings("Gilroy", 32px 96px, 100%, 500, var(--dark-blue-color));
+		text-align: center;
+	}
+
+	.services-subtitle {
+		@include font-settings("Gilroy", 14px 34px, 120%, 500, var(--gray-color));
+		text-align: center;
+	}
+}
