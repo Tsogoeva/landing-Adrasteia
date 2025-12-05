@@ -4,16 +4,124 @@
 	width: 100%;
 	@include adaptive-clamp("padding-top", 20px, 70px);
 	@include adaptive-clamp("padding-bottom", 20px, 70px);
-	@include adaptive-clamp("border-radius", 6px, 20px);
-	background-color: var(--light-gray-color);
 
-	.services-title {
-		@include font-settings("Gilroy", 32px 96px, 100%, 500, var(--dark-blue-color));
-		text-align: center;
+	.wrapper.bg-color {
+		border-radius: 0;
+		background-color: var(--white-color);
+
+		@media (max-width: 767px) {
+			@include adaptive-clamp("border-radius", 16px, 50px);
+			background-color: var(--light-gray-color);
+			padding: 0 !important;
+		}
+	}
+	.container.bg-color {
+		@include adaptive-clamp("border-radius", 16px, 50px);
+		background-color: var(--light-gray-color);
+
+		@media (max-width: 767px) {
+			border-radius: 0;
+			// background-color: var(--white-color);
+		}
 	}
 
-	.services-subtitle {
-		@include font-settings("Gilroy", 14px 34px, 120%, 500, var(--gray-color));
-		text-align: center;
+	.splide-services-header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		@include adaptive-clamp("padding-top", 40px, 120px);
+		@include adaptive-clamp("padding-bottom", 30px, 90px);
+		@include adaptive-clamp("padding-left", 20px, 90px);
+		@include adaptive-clamp("padding-right", 20px, 90px);
+
+		.services-title {
+			@include font-settings("Gilroy", 32px 96px, 100%, 500, var(--dark-blue-color));
+			text-align: left;
+		}
+
+		.services-subtitle {
+			@include font-settings("Gilroy", 14px 34px, 120%, 500, var(--gray-color));
+			text-align: left;
+		}
+	}
+
+	.services-splide-padding {
+		@include adaptive-clamp("padding-left", 10px, 20px);
+	}
+
+	.splide-services-track {
+		@include adaptive-clamp("padding-bottom", 40px, 120px);
+
+		.services-slide.is-active {
+			// background-color: var(--dark-blue-color);
+			// transform: scale(1.1);
+		}
+
+		.services-slide {
+			max-width: 440px;
+			min-width: 280px;
+			height: auto;
+			@include adaptive-clamp("border-radius", 20px, 30px);
+			background-color: var(--white-color);
+			padding: 10px;
+
+			// transform: scale(1);
+			transition: all 0.5s ease;
+
+			.services-img {
+				img {
+					width: 100%;
+					object-fit: contain;
+				}
+			}
+
+			.services-info {
+				@include adaptive-clamp("padding-top", 30px, 40px);
+				// @include adaptive-clamp("padding-bottom", 30px, 40px);
+				@include adaptive-clamp("padding-left", 10px, 30px);
+				@include adaptive-clamp("padding-right", 10px, 30px);
+				.services-title {
+					@include adaptive-clamp("padding-bottom", 20px, 30px);
+					@include font-settings("Gilroy", 20px 36px, 100%, 500, var(--dark-blue-color));
+					text-align: left;
+				}
+				.services-points {
+					li {
+						@include adaptive-clamp("padding-bottom", 4px, 10px);
+						@include font-settings("Gilroy", 14px 20px, 120%, 500, var(--dark-blue-color));
+						text-align: left;
+					}
+					li:last-child {
+						@include adaptive-clamp("padding-bottom", 20px, 40px);
+					}
+				}
+
+				.services-pop-up {
+					display: none;
+					align-items: center;
+					outline: none;
+					width: max-content;
+					background-color: var(--dark-blue-color);
+					@include adaptive-clamp("gap", 30px, 40px);
+					@include adaptive-clamp("padding-top", 12px, 20px);
+					@include adaptive-clamp("padding-bottom", 12px, 20px);
+					@include adaptive-clamp("padding-left", 12px, 30px);
+					@include adaptive-clamp("padding-right", 12px, 30px);
+					@include adaptive-clamp("border-radius", 6px, 12px);
+					@include adaptive-clamp("margin-bottom", 20px, 30px);
+
+					.services-pop-up-text {
+						@include font-settings("Gilroy", 14px 20px, 140%, 600, var(--white-color));
+						white-space: nowrap;
+					}
+					.services-pop-up-plus {
+						display: inline-block;
+						@include adaptive-clamp("max-width", 20px, 30px);
+						@include adaptive-clamp("max-height", 20px, 30px);
+						fill: var(--white-color);
+					}
+				}
+			}
+		}
 	}
 }
