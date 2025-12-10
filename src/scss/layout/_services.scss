@@ -21,7 +21,6 @@
 
 		@media (max-width: 767px) {
 			border-radius: 0;
-			// background-color: var(--white-color);
 		}
 	}
 
@@ -33,10 +32,17 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+		align-items: center;
 		@include adaptive-clamp("padding-top", 40px, 120px);
 		@include adaptive-clamp("padding-bottom", 30px, 90px);
 		@include adaptive-clamp("padding-left", 20px, 90px);
 		@include adaptive-clamp("padding-right", 20px, 90px);
+
+		@media (max-width: 480px) {
+			flex-direction: column;
+			gap: 20px;
+			align-items: flex-start;
+		}
 
 		.services-title {
 			@include font-settings("Gilroy", 32px 96px, 100%, 500, var(--dark-blue-color));
@@ -46,6 +52,38 @@
 		.services-subtitle {
 			@include font-settings("Gilroy", 14px 34px, 120%, 500, var(--gray-color));
 			text-align: left;
+		}
+
+		.services-arrow-container {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			background-color: var(--white-color);
+			border-radius: 100px;
+
+			.services-arrow {
+				display: inline-block;
+				@include adaptive-clamp("margin-top", 12px, 24px);
+				@include adaptive-clamp("margin-bottom", 12px, 24px);
+				@include adaptive-clamp("margin-left", 12px, 24px);
+				@include adaptive-clamp("margin-right", 12px, 24px);
+				@include adaptive-clamp("max-width", 20px, 36px);
+				@include adaptive-clamp("max-height", 20px, 36px);
+				fill: var(--dark-blue-color);
+				transition: all 0.5s ease;
+			}
+
+			.splide__arrow:disabled {
+				.services-arrow {
+					opacity: 0.22;
+				}
+			}
+
+			.services-arrow-border {
+				width: 1px;
+				@include adaptive-clamp("height", 24px, 32px);
+				background-color: var(--light-gray-color);
+			}
 		}
 	}
 
