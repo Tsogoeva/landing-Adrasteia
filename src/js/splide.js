@@ -6,7 +6,7 @@ const configSplideServices = {
 	perPage: 4,
 	perMove: 1,
 	focus: 'center',
-	gap: '0.625rem',
+	gap: '1rem',
 	arrows: true,
 	easing: 'ease',
 	drag: 'free',
@@ -39,6 +39,20 @@ function initSplide() {
 			e.preventDefault();
 		}
 	});
+
+	const allSlides = document.querySelectorAll('.services-slide');
+	allSlides.forEach(slide => {
+
+		const btnPopUp = slide.querySelector('.services-pop-up-container');
+
+		splideServices.on('moved', () => {
+			if (slide.classList.contains('is-active')) {
+				btnPopUp.style.display = 'block';
+			} else {
+				btnPopUp.style.display = 'none';
+			}
+		});
+	})
 
 }
 

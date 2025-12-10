@@ -25,6 +25,10 @@
 		}
 	}
 
+	.splide {
+		overflow: hidden;
+	}
+
 	.splide-services-header {
 		display: flex;
 		flex-direction: row;
@@ -46,15 +50,30 @@
 	}
 
 	.services-splide-padding {
-		@include adaptive-clamp("padding-left", 10px, 20px);
+		transition: all 0.5s ease;
+		@include adaptive-clamp("padding-left", 20px, 30px);
+		@include adaptive-clamp("padding-right", 20px, 30px);
+	}
+
+	.splide__track {
+		overflow: visible !important;
+	}
+
+	.services-pop-up-container {
+		display: none;
 	}
 
 	.splide-services-track {
 		@include adaptive-clamp("padding-bottom", 40px, 120px);
 
 		.services-slide.is-active {
-			// background-color: var(--dark-blue-color);
-			// transform: scale(1.1);
+			transform: scale(1.05);
+
+			.services-pop-up-container {
+				display: block;
+				transition: all 0.5s ease;
+				opacity: 0;
+			}
 		}
 
 		.services-slide {
@@ -65,7 +84,6 @@
 			background-color: var(--white-color);
 			padding: 10px;
 
-			// transform: scale(1);
 			transition: all 0.5s ease;
 
 			.services-img {
@@ -80,6 +98,12 @@
 				// @include adaptive-clamp("padding-bottom", 30px, 40px);
 				@include adaptive-clamp("padding-left", 10px, 30px);
 				@include adaptive-clamp("padding-right", 10px, 30px);
+
+				.services-pop-up-container {
+					transition: all 0.5s ease;
+					opacity: 1;
+				}
+
 				.services-title {
 					@include adaptive-clamp("padding-bottom", 20px, 30px);
 					@include font-settings("Gilroy", 20px 36px, 100%, 500, var(--dark-blue-color));
@@ -97,7 +121,7 @@
 				}
 
 				.services-pop-up {
-					display: none;
+					display: flex;
 					align-items: center;
 					outline: none;
 					width: max-content;
