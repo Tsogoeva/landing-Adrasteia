@@ -1,0 +1,57 @@
+@use "../core/mixins" as *;
+
+.procces {
+	width: 100%;
+	@include adaptive-clamp("padding-top", 40px, 70px);
+	@include adaptive-clamp("padding-bottom", 40px, 70px);
+
+	.procces-flex-container {
+		.procces-info {
+			h2 {
+				@include font-settings("Gilroy", 32px 96px, 100%, 500, var(--dark-blue-color));
+				text-align: left;
+				@include adaptive-clamp("padding-bottom", 30px, 70px);
+
+				@media (max-width: 767px) {
+					br {
+						display: none;
+					}
+				}
+			}
+			.procces-container {
+				.procces-cards {
+					.procces-card {
+						.procces-card-container {
+							.procces-card-icon {
+							}
+							.procces-card-text {
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.process-bg-container {
+			.procces-banner-container {
+				.cube-container {
+				}
+
+				.cube-1-container {
+					.cube-1 {
+					}
+				}
+
+				.cube-2-container {
+					.cube-2 {
+					}
+				}
+
+				.cube-3-container {
+					.cube-3 {
+					}
+				}
+			}
+		}
+	}
+}
